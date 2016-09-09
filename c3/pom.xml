@@ -3,6 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>c3</artifactId>
+	<packaging>jar</packaging>
 	<name>03 - Bean Validation (Putting It All Together)</name>
 	<description>chapter 03</description>
 

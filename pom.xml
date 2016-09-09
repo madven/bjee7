@@ -12,14 +12,22 @@
 	<modules>
 		<module>c2</module>
 		<module>c3</module>
+		<module>c4</module>
 	</modules>
 
 	<properties>
+		<!-- Java EE -->
 		<version.weld>2.3.5.Final</version.weld>
+		<version.hibernate.validator>5.2.4.Final</version.hibernate.validator>
+		<version.eclipselink>2.6.3</version.eclipselink>
+		<version.el>3.0.0</version.el>
+		<!-- Databases -->
+		<version.derby>10.12.1.1</version.derby>
+		<!-- Test -->
 		<version.junit>4.12</version.junit>
+		<!-- Maven Plugins -->
 		<version.maven.exec.plugin>1.5.0</version.maven.exec.plugin>
 		<version.maven.failsafe.plugin>2.19.1</version.maven.failsafe.plugin>
-		<version.hibernate.validator>5.2.4.Final</version.hibernate.validator>
 
 		<!-- Project -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -40,6 +48,33 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
 				<version>${version.hibernate.validator}</version>
+			</dependency>
+
+			<!-- EL -->
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>javax.el-api</artifactId>
+				<version>${version.el}</version>
+			</dependency>
+
+			<!-- JPA -->
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>org.eclipse.persistence.jpa</artifactId>
+				<version>${version.eclipselink}</version>
+			</dependency>
+
+			<!-- Derby -->
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derby</artifactId>
+				<version>${version.derby}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derbyclient</artifactId>
+				<version>${version.derby}</version>
 			</dependency>
 
 			<!-- Test -->
