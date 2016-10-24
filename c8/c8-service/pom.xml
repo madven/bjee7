@@ -2,26 +2,22 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>c3</artifactId>
+	<groupId>agoncal-javaee7.c8</groupId>
+	<artifactId>c8-service</artifactId>
+	<version>1.0</version>
 	<packaging>jar</packaging>
-	<name>03 - Bean Validation (Putting It All Together)</name>
-	<description>chapter 03</description>
+	<name>08 - Callback and Timer (Service)</name>
 
 	<parent>
 		<groupId>agoncal-javaee7</groupId>
-		<artifactId>parent</artifactId>
+		<artifactId>c8</artifactId>
 		<version>1.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se</artifactId>
+			<groupId>fish.payara.extras</groupId>
+			<artifactId>payara-embedded-all</artifactId>
 		</dependency>
 
 		<dependency>

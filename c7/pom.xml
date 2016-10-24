@@ -2,10 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>c3</artifactId>
-	<packaging>jar</packaging>
-	<name>03 - Bean Validation (Putting It All Together)</name>
-	<description>chapter 03</description>
+	<artifactId>c7</artifactId>
+	<name>07 - EJB</name>
+	<description>chapter 07 samples</description>
 
 	<parent>
 		<groupId>agoncal-javaee7</groupId>
@@ -15,13 +14,10 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se</artifactId>
+			<groupId>fish.payara.extras</groupId>
+			<artifactId>payara-embedded-all</artifactId>
+			<!-- use scope compile to run the main class -->
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>

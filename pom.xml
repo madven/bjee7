@@ -3,8 +3,8 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>agoncal-javaee7</groupId>
-	<artifactId>bjee7</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>parent</artifactId>
+	<version>1.0</version>
 	<packaging>pom</packaging>
 	<name>Beginning Java EE 7</name>
 	<description>Author: Antonio Goncalves</description>
@@ -13,10 +13,14 @@
 		<module>c2</module>
 		<module>c3</module>
 		<module>c4</module>
+		<module>c7</module>
+		<module>c8</module>
 	</modules>
 
 	<properties>
+		<version.java>1.8</version.java>
 		<!-- Java EE -->
+		<version.glassfish>4.1.1.163.0.1</version.glassfish>
 		<version.weld>2.3.5.Final</version.weld>
 		<version.hibernate.validator>5.2.4.Final</version.hibernate.validator>
 		<version.eclipselink>2.6.3</version.eclipselink>
@@ -26,6 +30,7 @@
 		<!-- Test -->
 		<version.junit>4.12</version.junit>
 		<!-- Maven Plugins -->
+		<version.maven.compiler.plugin>3.5.1</version.maven.compiler.plugin>
 		<version.maven.exec.plugin>1.5.0</version.maven.exec.plugin>
 		<version.maven.failsafe.plugin>2.19.1</version.maven.failsafe.plugin>
 
@@ -36,6 +41,15 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- This has most of the needed dependencies : Derby, JPA, EJB, Java 
+				EE... -->
+			<dependency>
+				<groupId>fish.payara.extras</groupId>
+				<artifactId>payara-embedded-all</artifactId>
+				<version>${version.glassfish}</version>
+				<scope>provided</scope>
+			</dependency>
+
 			<!-- CDI -->
 			<dependency>
 				<groupId>org.jboss.weld.se</groupId>
@@ -112,6 +126,18 @@
 
 		<pluginManagement>
 			<plugins>
+				<!-- Apache -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.maven.compiler.plugin}</version>
+					<inherited>true</inherited>
+					<configuration>
+						<source>${version.java}</source>
+						<target>${version.java}</target>
+					</configuration>
+				</plugin>
+
 				<!-- Codehaus -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
