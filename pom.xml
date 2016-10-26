@@ -15,6 +15,7 @@
 		<module>c4</module>
 		<module>c7</module>
 		<module>c8</module>
+		<module>c9</module>
 	</modules>
 
 	<properties>
