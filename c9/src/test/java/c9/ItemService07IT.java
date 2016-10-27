@@ -10,25 +10,26 @@ import java.util.Map;
 
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
+import javax.naming.NamingException;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ex01.Book01;
-import ex01.CD01;
-import ex01.ItemEJB01;
+import ex07.Book07;
+import ex07.CD07;
+import ex07.ItemServiceGateway;
 
-public class ItemEJB01IT {
+public class ItemService07IT {
 
 	// ======================================
-	// =             Attributes             =
+	// = Attributes =
 	// ======================================
 	private static EJBContainer ec;
 	private static Context ctx;
 
 	// ======================================
-	// =          Lifecycle Methods         =
+	// = Lifecycle Methods =
 	// ======================================
 
 	@BeforeClass
@@ -50,14 +51,14 @@ public class ItemEJB01IT {
 	}
 
 	// ======================================
-	// =              Unit tests            =
+	// = Unit tests =
 	// ======================================
 
 	@Test
 	public void shouldCreateABook() throws Exception {
 
 		// Creates an instance of book
-		Book01 book = new Book01();
+		Book07 book = new Book07();
 		book.setTitle("The Hitchhiker's Guide to the Galaxy");
 		book.setPrice(12.5F);
 		book.setDescription("Science fiction comedy book");
@@ -65,25 +66,30 @@ public class ItemEJB01IT {
 		book.setNbOfPage(354);
 		book.setIllustrations(false);
 
-		// Looks up the EJB
-		ItemEJB01 itemEJB = (ItemEJB01) ctx.lookup("java:global/classes/ItemEJB01");
+		ItemServiceGateway itemService = lookupItemService();
 
 		// Persists the book to the database
-		book = itemEJB.createBook(book);
+		book = itemService.createBook(book);
 		assertNotNull("ID should not be null", book.getId());
-		assertNotNull("Book should have been found", itemEJB.findBookById(book.getId()));
+		assertNotNull("Book should have been found", itemService.findBookById(book.getId()));
 		assertEquals("Item in stock should be one", new Integer(1), book.getAvailableInStock());
 
 		// Retrieves all the books from the database
-		List<Book01> books = itemEJB.findBooks();
+		List<Book07> books = itemService.findBooks();
 		assertNotNull(books);
+	}
+
+	public ItemServiceGateway lookupItemService() throws NamingException {
+		// Looks up the EJB, that passes to CDI bean
+		ItemServiceGateway itemService = (ItemServiceGateway) ctx.lookup("java:global/classes/ItemServiceGateway");
+		return itemService;
 	}
 
 	@Test
 	public void shouldCreateACD() throws Exception {
 
-		// Creates an instance of CD01
-		CD01 cd = new CD01();
+		// Creates an instance of CD07
+		CD07 cd = new CD07();
 		cd.setTitle("Zoot Allure");
 		cd.setPrice(23f);
 		cd.setDescription("Another Zappa's master piece");
@@ -92,17 +98,17 @@ public class ItemEJB01IT {
 		cd.setTotalDuration(65f);
 		cd.setGenre("Rock");
 
-		// Looks up the EJB
-		ItemEJB01 itemEJB = (ItemEJB01) ctx.lookup("java:global/classes/ItemEJB01");
+		// Looks up the Service
+		ItemServiceGateway itemService = lookupItemService();
 
 		// Persists the book to the database
-		cd = itemEJB.createCD(cd);
+		cd = itemService.createCD(cd);
 		assertNotNull("ID should not be null", cd.getId());
-		assertNotNull("CD should have been found", itemEJB.findCDById(cd.getId()));
+		assertNotNull("CD should have been found", itemService.findCDById(cd.getId()));
 		assertEquals("Item in stock should be one", new Integer(1), cd.getAvailableInStock());
 
 		// Retrieves all the books from the database
-		List<CD01> cds = itemEJB.findCDs();
+		List<CD07> cds = itemService.findCDs();
 		assertNotNull(cds);
 	}
 }
