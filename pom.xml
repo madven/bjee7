@@ -18,6 +18,7 @@
 		<module>c8</module>
 		<module>c9</module>
 		<module>c11</module>
+		<module>c12</module>
 	</modules>
 
 	<properties>
@@ -28,6 +29,7 @@
 		<version.hibernate.validator>5.2.4.Final</version.hibernate.validator>
 		<version.eclipselink>2.6.3</version.eclipselink>
 		<version.el>3.0.0</version.el>
+		<version.json>1.0.4</version.json>
 		<!-- Databases -->
 		<version.derby>10.12.1.1</version.derby>
 		<!-- Test -->
@@ -94,6 +96,13 @@
 				<groupId>org.apache.derby</groupId>
 				<artifactId>derbyclient</artifactId>
 				<version>${version.derby}</version>
+			</dependency>
+
+			<!-- JSOn-P -->
+			<dependency>
+				<groupId>org.glassfish</groupId>
+				<artifactId>javax.json</artifactId>
+				<version>${version.json}</version>
 			</dependency>
 
 			<!-- Test -->
