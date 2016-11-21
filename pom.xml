@@ -19,6 +19,7 @@
 		<module>c9</module>
 		<module>c11</module>
 		<module>c12</module>
+		<module>c13</module>
 	</modules>
 
 	<properties>
