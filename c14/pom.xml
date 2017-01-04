@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>c14</artifactId>
+	<packaging>pom</packaging>
+	<name>14 - JAX-WS</name>
+	<description>piat - service and consumer</description>
+
+	<parent>
+		<groupId>agoncal-javaee7</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<modules>
+		<module>c14-service</module>
+		<module>c14-consumer</module>
+	</modules>
+</project>

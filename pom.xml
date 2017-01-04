@@ -20,6 +20,7 @@
 		<module>c11</module>
 		<module>c12</module>
 		<module>c13</module>
+		<module>c14</module>
 	</modules>
 
 	<properties>
@@ -37,10 +38,11 @@
 		<version.junit>4.12</version.junit>
 		<!-- Maven Plugins -->
 		<version.maven.compiler.plugin>3.5.1</version.maven.compiler.plugin>
-		<version.maven.jar.plugin>2.6</version.maven.jar.plugin>
-		<version.maven.war.plugin>2.6</version.maven.war.plugin>
+		<version.maven.jar.plugin>3.0.2</version.maven.jar.plugin>
+		<version.maven.war.plugin>3.0.0</version.maven.war.plugin>
 		<version.maven.exec.plugin>1.5.0</version.maven.exec.plugin>
 		<version.maven.failsafe.plugin>2.19.1</version.maven.failsafe.plugin>
+		<version.maven.jaxws.plugin>2.4.1</version.maven.jaxws.plugin>
 
 		<!-- Project -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -99,7 +101,7 @@
 				<version>${version.derby}</version>
 			</dependency>
 
-			<!-- JSOn-P -->
+			<!-- JSON-P -->
 			<dependency>
 				<groupId>org.glassfish</groupId>
 				<artifactId>javax.json</artifactId>
@@ -141,6 +143,7 @@
 
 		<pluginManagement>
 			<plugins>
+
 				<!-- Apache -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -179,6 +182,14 @@
 						</execution>
 					</executions>
 				</plugin>
+
+				<!-- JVNet -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>jaxws-maven-plugin</artifactId>
+					<version>${version.maven.jaxws.plugin}</version>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
 
