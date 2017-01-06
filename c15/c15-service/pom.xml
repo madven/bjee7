@@ -2,14 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>c14-service</artifactId>
+	<artifactId>c15-service</artifactId>
 	<packaging>war</packaging>
-	<name>14 - jaxws - piat</name>
-	<description>service</description>
+	<name>15 - JAX-RS (Service)</name>
 
 	<parent>
 		<groupId>agoncal-javaee7</groupId>
-		<artifactId>c14</artifactId>
+		<artifactId>c15</artifactId>
 		<version>1.0</version>
 	</parent>
 
